@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Hello, {{ session["username"] }}</h3>
+
+  <h3>Available Events</h3>
+  <ul>
+    {% for event in available_events %}
+      <li>
+        {{ event[0] }}, {{ event[1].strftime("%m/%d/%Y") }}, <a href="{{ url_for('signup', to_signup=event[2]) }}">Sign Up</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3>My Events</h3>
+  <ul>
+    {% for event in my_events %}
+      <li>
+        {{ event[0] }}, {{ event[1].strftime("%m/%d/%Y") }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

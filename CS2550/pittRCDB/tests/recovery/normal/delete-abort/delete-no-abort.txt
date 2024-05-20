@@ -1,0 +1,12 @@
+B 1
+I Starbucks (1, Apple, 9, PGH)
+I Starbucks (2, Orange, 2, PHL)
+I Starbucks (3, Grape, 3, PHL)
+I Starbucks (4, Cherry, 0, PGH)
+C
+B 1
+D Starbucks
+C
+B 1
+T Starbucks
+C

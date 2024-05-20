@@ -1,0 +1,9 @@
+test case: modify-delete
+description:
+  verifies that inserts and updates to deleted tables do not persist to the database after abort of the transaction
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/modify-delete/modify-delete.txt"
+  each time "T Starbucks" is executed, save the result
+expected behavior:
+  the value of "T Starbucks" should be identical both times they are executed

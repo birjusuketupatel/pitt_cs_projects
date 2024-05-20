@@ -1,0 +1,30 @@
+.grid{
+  float: left;
+  margin-left: 100px;
+}
+
+.grid td{
+  width:30px; height:30px;
+  border:1px solid black;
+  text-align: center;
+}
+
+.blue{
+  background-color: blue;
+}
+
+.blue.clickable:hover{
+  background-color: #43E8D8;
+}
+
+.blue.clickable:active{
+  background-color: #003366;
+}
+
+.gray{
+  background-color: gray;
+}
+
+.red{
+  background-color: red;
+}

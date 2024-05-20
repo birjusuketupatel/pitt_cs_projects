@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Hello, {{ session["username"] }}</h3>
+
+  <h3>All Events</h3>
+  {% if events|length > 0 %}
+    <ul>
+      {% for i in range(0, events|length) %}
+        {% set event = events[i] %}
+        {% set staffing = staffings[i] %}
+
+        <li>
+          {{ event[0] }}, {{ event[1].strftime("%m/%d/%Y") }}
+
+          <ul>
+            {% if staffing|length > 0 %}
+              {% for user in staffing %}
+                <li>
+                  {{ user[0] }}
+                </li>
+              {% endfor %}
+            {% else %}
+              <li>
+                Nobody is staffed on this event right now.
+              </li>
+            {% endif %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <ul>
+      <li>No events booked right now.</li>
+    </ul>
+  {% endif %}
+{% endblock %}

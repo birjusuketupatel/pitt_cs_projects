@@ -1,0 +1,12 @@
+test case: insert-abort
+description:
+  verifies that inserts onto an existing table from an aborted transactions does not affect the state of the database
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/insert-abort/insert-abort.txt"
+  save result of the final operation "T Starbucks"
+  delete created tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/insert-abort/insert-no-abort.txt"
+  save result of the final operation "T Starbucks"
+expected behavior:
+  results of the first and second operation should be equivalent

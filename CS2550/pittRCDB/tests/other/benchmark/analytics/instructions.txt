@@ -1,0 +1,13 @@
+test case: analytics
+description:
+  stress test to verify that analytics queries are fast
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/analytics/insert.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/analytics/analytics.txt"
+expected behavior:
+  inserts 8192 records
+  gets all records with countryOfOrigin="US"
+  gets all records with countryOfOrigin="MX"
+  gets all records with countryOfOrigin="IN"
+  gets all records have an intensity count of 9

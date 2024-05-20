@@ -1,0 +1,34 @@
+Replicated Server Design:
+
+The server state will be stored in a dictionary. The server state may be
+modified by invoking one of the operations below.
+
+create_group(group_name, username)
+join_group(group_name, username)
+leave_group(group_name, username)
+write_message(group_name, username, content, ts, server_id)
+add_like(group_name, username, ts, server_id)
+remove_like(group_name, username, ts, server_id)
+
+Upon invoking one of these operations, the server will broadcast the following
+operation message to all other servers. The operation is only broadcast if
+it has been successfully applied. The operation will be placed in the log and
+will be marked as having been executed.
+
+"{
+  operation_name: [Value]
+  arg_1: [Value]
+  arg_2: [Value]
+  arg_3: [Value]
+  arg_4: [Value]
+  arg_5: [Value]
+}"
+
+On receiving a new operation, it is placed in the log according to the total
+ordering condition. The operation is initially flagged as not executed.
+We then traverse the log from left to right and execute all operations that
+are flagged as not executed. If the operation succeeds, we flip the flag.
+
+When writing a message to a group, we order messages based on the total ordering
+condition, (msg1.ts > msg2.ts or (msg1.ts == msg2.ts and msg1.sender_id >
+msg2.sender_id)).

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Sign Up for Event</h3>
+
+  <ul>
+    <li>{{ event.name }}, {{ event.date.strftime("%m/%d/%Y") }}</li>
+  </ul>
+
+  <form action="" method="post" autocomplete="off">
+    <label for="submit">Are you sure you want to sign up for this event?</label>
+    <br><br>
+    <input type="submit" name="submit" value="Yes"></input>
+  </form>
+{% endblock %}

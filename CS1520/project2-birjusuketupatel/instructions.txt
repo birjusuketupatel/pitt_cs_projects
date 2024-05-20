@@ -1,0 +1,10 @@
+1. create virtual environment
+	- python -m venv venv
+2. start virtual environment
+	- venv\Scripts\activate.bat
+3. install dependencies
+	- pip install -r requirements.txt
+4. set target in environment variable
+	- set FLASK_APP=catering.py
+5. run application
+	- flask run

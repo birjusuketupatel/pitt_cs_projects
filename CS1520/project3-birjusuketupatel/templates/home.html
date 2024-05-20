@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <script>
+    var user_id = {{ session["user_id"] }};
+  </script>
+  <script type="text/javascript" src="{{ url_for('static', filename='availableRooms.js') }}"></script>
+
+  <h3>User: {{ session["username"] }}</h3>
+  <h3>Available Rooms</h3>
+  <div id="all_rooms"></div>
+
+  <h3>Create Room</h3>
+  <form onsubmit="return false" autocomplete="off">
+    <label for="room_name">Room Name:</label>
+    <input type="text" id="room_name" name="room_name" maxlength="30">
+    <br><br>
+    <input type="submit" id="submit" name="submit" value="Add Room"></input>
+  </form>
+{% endblock %}

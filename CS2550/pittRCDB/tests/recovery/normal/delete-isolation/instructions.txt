@@ -1,0 +1,14 @@
+test case: delete-isolation
+description:
+  verifies that a user can delete and recreate the same table several times in one transaction
+  verifies that deleted tables are restored on the abort of a transaction
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/delete-isolation/delete-isolation-abort.txt"
+  delete existing tables with "rm -rf tables"
+    run "./pittRCDB roundrobin ./tests/recovery/normal/delete-isolation/delete-isolation-no-abort.txt"
+expected behavior:
+  after first operation, table should contain 4 records
+  after second operation, table should contain 1 record
+  after a transaction executes a delete, values which existed in that table before are no longer visible to it
+  the only values the transaction may see in that table are those which it has itself inserted after the latest delete

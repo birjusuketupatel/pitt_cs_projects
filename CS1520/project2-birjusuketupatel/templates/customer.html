@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Hello, {{ session["username"] }}</h3>
+
+  <h3>My Events</h3>
+  <ul>
+    {% for event in events %}
+      <li>
+        {{ event.name }}, {{ event.date.strftime("%m/%d/%Y") }}, <a href="{{ url_for('cancel_event', to_cancel=event.id) }}">Cancel</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3>Add an Event</h3>
+  <form action="" method="post" autocomplete="off">
+    <label for="event_name">Event Name:</label>
+    <input type="text" name="event_name" maxlength="100" required>
+    <br><br>
+    <label for="date">Date:</label>
+    <input type="date" name="event_date" required>
+    <br><br>
+    <input type="submit" name="submit" value="Book Now"></input>
+  </form>
+{% endblock %}

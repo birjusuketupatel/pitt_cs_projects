@@ -1,0 +1,12 @@
+B 1
+D Shop-Rite
+I Giant (8, Banana, 7, CN)
+I Giant (9, Dragonfruit, 2, UK)
+I Giant (10, Kiwi, 9, US)
+I Giant (11, Cantaloupe, 4, YE)
+I Giant (12, Pineapple, 6, US)
+C
+B 1
+T Shop-Rite
+T Giant
+C

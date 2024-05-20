@@ -1,0 +1,12 @@
+test case: create-abort
+description:
+  verifies that a table created by an aborted transaction is removed
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/create-abort/create-abort.txt"
+  save result of the final operation "T Starbucks"
+  delete created tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/create-abort/create-no-abort.txt"
+  save result of the final operation "T Starbucks"
+expected behavior:
+  results of the first and second operation should be equivalent

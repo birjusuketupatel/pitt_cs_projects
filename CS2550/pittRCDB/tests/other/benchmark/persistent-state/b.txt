@@ -1,0 +1,10 @@
+B 1
+I Acme (41, Peach, 0, CA)
+I Acme (63, Eggplant, 5, US)
+I Giant (0, Kiwi, 5, UK)
+I Giant (1, Blueberry, 2, JP)
+C
+B 1
+T Acme
+T Giant
+C

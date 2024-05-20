@@ -1,0 +1,24 @@
+B 1
+I Acme (0, Kiwi, 5, UK)
+I Acme (1, Blueberry, 2, JP)
+I Acme (2, Cantaloupe, 7, US)
+I Acme (5, Pepper, 9, MX)
+I Acme (12, Pineapple, 6, US)
+I Acme (13, Guava, 3, CA)
+I Acme (15, Cantaloupe, 7, UK)
+I Acme (17, Lemon, 5, IN)
+I Acme (20, Grape, 8, CN)
+I Acme (25, Apple, 8, BR)
+I Acme (26, Banana, 2, CA)
+I Acme (27, Eggplant, 10, EC)
+I Acme (28, Guava, 1, CA)
+I Acme (29, Blueberry, 9, SA)
+I Acme (31, Orange, 10, BR)
+I Acme (32, Orange, 6, YE)
+I Acme (33, Grape, 10, US)
+I Acme (36, Lemon, 8, SA)
+C
+B 1
+M Acme US
+G Acme 10
+C

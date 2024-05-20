@@ -1,0 +1,11 @@
+test case: many-tables
+description:
+  stress test where inserts, updates, and deletes to multiple tables are aborted
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/benchmark/many-tables/with-abort.txt"
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/benchmark/many-tables/no-abort.txt"
+expected behavior:
+  both scripts dump state of all tables after execution
+  entries may be in a different order, but all tables should contain the same values

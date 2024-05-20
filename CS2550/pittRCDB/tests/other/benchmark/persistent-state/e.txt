@@ -1,0 +1,11 @@
+B 1
+I Giant (38, Cantaloupe, 5, RU)
+I Giant (58, Cherry, 7, UK)
+A
+B 1
+I Shop-Rite (48, Cantaloupe, 8, EC)
+C
+B 1
+T Giant
+T Shop-Rite
+C

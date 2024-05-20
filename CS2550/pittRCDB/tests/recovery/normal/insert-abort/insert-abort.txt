@@ -1,0 +1,12 @@
+B 1
+I Starbucks (1, Apple, 9, PGH)
+C
+B 1
+I Starbucks (2, Abort, 8, PHL)
+A
+B 1
+I Starbucks (2, Banana, 7, LA)
+C
+B 1
+T Starbucks
+C

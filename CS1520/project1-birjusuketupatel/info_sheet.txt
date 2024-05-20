@@ -1,0 +1,44 @@
+===================================
+CS1520 Assignment Information Sheet
+-----------------------------------
+
+You must submit an information sheet with every assignment. Also be sure
+to submit all materials following the procedures described on the
+submission procedures page.
+
+Name: Birju Patel
+
+Lecture section: Mon-Wed 3:00-4:15
+
+Recitation day and time: Fri 9:00-9:50
+	
+Assignment #: 1
+
+Program due date: 10/3/2021
+
+Handed in date: 10/1/2021
+
+Source code file name(s):
+index.html
+battleship.html
+initGame.html
+wait.html
+css/grid.css
+js/game.js
+js/initGame.js
+js/newGame.js
+js/playGame.js
+js/wait.js
+
+Other file name(s) (if relevant):
+images/battleship.png
+images/example.png
+
+Does your project run without error?: Yes
+
+If not, what is/are the error(s) and which parts of your program run
+correctly?:
+
+Additional comments to the grader:
+The users may refresh the page. The state of the game is persistent since it is stored in session storage.
+The user may not navigate through pages out of order. They will be redirected to the correct page no matter which they start on.

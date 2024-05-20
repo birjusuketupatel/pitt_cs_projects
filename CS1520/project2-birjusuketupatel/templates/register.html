@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Create Account</h3>
+  <form action="" method="post" autocomplete="off">
+    <label for="username">Username:</label>
+    <input type="text" name="username" maxlength="30" required>
+    <br><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" maxlength="30" required>
+    <br><br>
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" name="confirm_password" maxlength="30" required>
+    <br><br>
+    {% if session["rank"] == 1 %}
+      <input type="checkbox" name="staff_member">
+      <label for="staff_member">Staff Member</label>
+      <br><br>
+    {% endif %}
+    <input type="submit" name="submit" value="Create Account"></input>
+  </form>
+{% endblock %}

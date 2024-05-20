@@ -1,0 +1,12 @@
+B 1
+I Starbucks (1, Apple, 0, PGH)
+C
+B 1
+U Starbucks (1, 5)
+C
+B 1
+U Starbucks (1, 10)
+A
+B 1
+R Starbucks 1
+C

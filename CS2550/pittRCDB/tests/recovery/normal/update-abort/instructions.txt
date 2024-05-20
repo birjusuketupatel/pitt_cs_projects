@@ -1,0 +1,13 @@
+test case: update-abort
+description:
+  verifies that updates onto an existing table from an aborted transactions does not affect the state of the database
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/update-abort/update-abort.txt"
+  save result of the final operation "R Starbucks 1"
+  delete created tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/normal/update-abort/update-no-abort.txt"
+  save result of the final operation "R Starbucks 1"
+expected behavior:
+  the intensity field on the result of the first operation should be 5
+  the intensity field on the result of the second operation should be 10

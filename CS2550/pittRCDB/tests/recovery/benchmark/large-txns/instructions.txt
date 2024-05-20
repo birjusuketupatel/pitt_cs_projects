@@ -1,0 +1,11 @@
+test case: large-txns
+description:
+  stress test where multiple large transactions to a single table are aborted
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/benchmark/large-txns/with-abort.txt"
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/benchmark/large-txns/no-abort.txt"
+expected behavior:
+  both scripts dump state of all tables after execution
+  entries may be in a different order, but all tables should contain the same values

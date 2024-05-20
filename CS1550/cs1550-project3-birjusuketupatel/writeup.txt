@@ -1,0 +1,10 @@
+CS1550 Project 3 Writeup
+Birju Patel
+
+The data shows that the least recently used algorithm performs very well on this dataset.
+I ran the trace.1 file on the LRU and OPT algorithms at the memory splits specified for each of the 4 memory configurations.
+OPT performed significantly better than LRU when the cache was a limited size (16 frames). However, at larger cache sizes, their results were similar.
+In the largest case, when the cache contained 1024 frames and each page was 4 MB in size, their results were identical for each run.
+
+Also, while OPT took about 10 seconds to run, LRU completed almost instantly.
+Each memory access to the LRU cache is an O(1) operation, but for OPT, evictions took O(n) time, where n is the size of the cache.

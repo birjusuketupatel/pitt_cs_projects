@@ -1,0 +1,22 @@
+test case: persistent-state
+description:
+  verifies the dbms closes gracefully and can recover its state from disk
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/a.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/b.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/c.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/d.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/e.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/f.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/g.txt"
+  run "./pittRCDB roundrobin ./tests/other/benchmark/persistent-state/h.txt"
+expected behavior:
+  after first operation, table Acme should contain 5 records
+  after second operation, table Acme should contain 7 records and table Giant should contain 2 records
+  after the third operation, table Acme should be unchanged, table Giant should be deleted, and table Gentile's should contain 2 records
+  after the fourth operation, all records in table Gentile's should have intensity=10, table Acme should be unchanged
+  after the fifth operation, table Shop-Rite should be created with 2 records, table Giant is created in and deleted in an aborted transaction
+  after the sixth operation, table Giant is created with 5 records, table Shop-Rite is deleted
+  after the seventh operation, all tables are printed, Giant has 5 records, Gentile's has 2, and Acme has 7
+  after the eight operation, all records where countryOfOrigin="US" is printed for all tables, should be 2 for Giant, 1 for Acme, 1 for Gentile's

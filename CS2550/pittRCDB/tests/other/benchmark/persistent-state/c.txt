@@ -1,0 +1,10 @@
+B 1
+D Giant
+I Gentile's (26, Banana, 2, CA)
+I Gentile's (33, Grape, 5, US)
+C
+B 1
+T Acme
+T Giant
+T Gentile's
+C

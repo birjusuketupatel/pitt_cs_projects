@@ -1,0 +1,21 @@
+API:
+/rooms (GET, POST, DELETE)
+/rooms/<room_id> (POST, GET)
+
+Database:
+  User
+    id       integer, PK
+    username string, unique
+    pass     string, not null
+
+  Room
+    id       integer, PK
+    name     string, unique
+    owner_id integer, FK references User(id)
+
+  Message
+    id        integer, PK
+    content   string, not null
+    timestamp datetime, not null
+    author_id integer, FK references User(id)
+    room_id,  integer, FK references Room(id)

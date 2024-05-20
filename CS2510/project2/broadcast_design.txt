@@ -1,0 +1,50 @@
+Broadcast Protocol Design:
+
+On startup, the user gives the node id and the location of a configuration file.
+If the node has an id i, line i of the configuration file contains the ip and
+port where this node is running. The node creates a separate thread that creates
+a socket to listen at this port for broadcast messages from others in the group.
+
+The protocol is built on top of UDP. To ensure reliability, the node maintains
+a sequence number, and a vector containing the highest sequence numbers received
+from every other node in the system. A node only accepts a new message if its
+sequence number is equal to the sequence number it is expecting. Otherwise,
+the message is ignored. When an out of order sequence number is received, the
+node sends a nack to the sender of the out of order packet containing the
+expected sequence number. Nacks are handled by retransmitting everything in the
+buffer with a sequence number >= the sequence number of the nack.
+
+A causal order is maintained by utilizing lamport timestamps. Every time a novel
+message is broadcast (not an ack, nack, or retransmission), the node increments
+its timestamp. When a novel message is accepted (sequence number = expected
+sequence number), the timestamp is updated to max(pkt.ts, timestamp) + 1. When
+a packet is sent or accepted it is placed in order in a log based on the total
+ordering condition (msg1.ts > msg2.ts or (msg1.ts == msg2.ts and msg1.sender_id
+> msg2.sender_id)).
+
+Each node maintains a vector of the highest timestamps it has received from
+every other node in the system. This vector is updated every time the node
+receives a new message from another node. When a node sends and receives a total
+of ACK_TIME messages, it broadcasts its current sequence number vector, its
+timestamp vector, and current timestamp to every other node. On receiving an
+ack, the node updates its own timestamp vector value for the sender node based
+on the timestamp on the ack if the node has received all sequence numbers from
+this node up to the sequence number of the ack. Each node maintains a matrix of
+the most updated vectors it has received from all other nodes, including its own.
+The node's buffer is purged of every message who's sequence number is
+<= min(seq_matrix[i][node_id]) over all i = 1,...,N. The node's log is purged of
+every message who's timestamp is < min(ts_matrix[i][j]) over all i,j = 1,...N.
+
+The recovery mechanism works by sending nacks periodically to every other node
+in the system. For each node i, the nack is for the sequence number equal to
+highest_seq_rcvd[i] + 1. This brings the system to a state of eventual
+consistency in the face of a crashed and recovered node and a network partition.
+
+Each node recovers from crashed by writing its state to a file titled "log{id}".
+On startup, the node checks if such a file is present. If it exists, it recovers
+its state from that file. If not, it creates one. After every change in the state
+of the node, the full state is written to this file. We use the JSON format to
+store the state of the server on a file.
+
+Each packet has an executed flag which marks if the operation it contains
+has been executed. This is used by the server for state machine replication.

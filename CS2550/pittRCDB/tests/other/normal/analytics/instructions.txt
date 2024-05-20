@@ -1,0 +1,9 @@
+test case: analytics
+description:
+  verifies that analytics queries are performed correctly
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/other/normal/persistent-state/analytics.txt"
+expected behavior:
+  get 3 records with countryOfOrigin="US"
+  get that 3 records have an intensity count of 10

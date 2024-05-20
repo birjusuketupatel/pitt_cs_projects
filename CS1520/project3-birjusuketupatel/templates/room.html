@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <script>
+    var user_id = {{ session["user_id"] }};
+    var room_id = {{ session['room_id'] }};
+  </script>
+  <script type="text/javascript" src="{{ url_for('static', filename='chatRoom.js') }}"></script>
+
+  <h3>User: {{ session["username"] }}</h3>
+  <h3>Room: {{ session["room_name"] }}</h3>
+
+  <ul id="all_messages"></ul>
+
+  <h3>Send Message</h3>
+  <form onsubmit="return false" autocomplete="off">
+    <label for="message">New Message:</label>
+    <input type="text" id="message" name="message" maxlength="140">
+    <br><br>
+    <input type="submit" id="submit" name="submit" value="Send"></input>
+  </form>
+{% endblock %}

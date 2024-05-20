@@ -1,0 +1,11 @@
+test case: queries
+description:
+  stress test where inserts, updates, and deletes to multiple tables are aborted
+  runs queries on table to ensure that index structures are still working
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/benchmark/queries/with-abort.txt"
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/recovery/benchmark/queries/no-abort.txt"
+expected behavior:
+  both scripts execute the same queries, and should give the same results

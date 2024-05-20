@@ -1,0 +1,10 @@
+B 1
+I Acme (0, Kiwi, 5, UK)
+I Acme (7, Banana, 2, JP)
+I Acme (13, Guava, 3, CA)
+I Acme (17, Lemon, 5, IN)
+I Acme (28, Guava, 1, CA)
+C
+B 1
+T Acme
+C

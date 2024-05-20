@@ -1,0 +1,10 @@
+test case: persistent-state
+description:
+  verifies the dbms closes gracefully and can recover its state from disk
+instructions:
+  delete existing tables with "rm -rf tables"
+  run "./pittRCDB roundrobin ./tests/other/normal/persistent-state/first.txt"
+  run "./pittRCDB roundrobin ./tests/other/normal/persistent-state/second.txt"
+expected behavior:
+  after first operation, table Acme should contain 5 records
+  after second operation, table should contain first 5 records and 2 new ones

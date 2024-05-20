@@ -1,0 +1,5 @@
+1. compile Vmsim
+	- javac Vmsim.java
+2. run simulation on a trace
+	- java Vmsim -a <opt|lru> –n <numframes> -p <pagesize in KB> -s <memory split> <tracefile>
+	- java Vmsim -a lru -n 16 -p 4 -s 1:1 1.trace
