@@ -1,5 +1,4 @@
 # Pitt CS Projects
-# Birju Patel
 All of my coding projects from my time at Pitt
 
 ### CS445, Data Structures 1, John Ramirez, Spring 2020
