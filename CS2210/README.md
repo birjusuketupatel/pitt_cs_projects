@@ -6,7 +6,7 @@
 Dependencies - gcc, yacc, lex\
 The program successfully compiles all test cases except src9.\
 I compiled and ran the code generator on oxygen.cs.pitt.edu.\
-I tested the compiled code with QTSpim, a Windows based MIPS simulator. (https://spimsimulator.sourceforge.net/)\
+I tested the compiled code with QTSpim, a Windows based MIPS simulator. (https://spimsimulator.sourceforge.net/)
 
 Instructions -\
 Spin up a docker container with a 32 bit image of Ubuntu (docker run --rm -it i686/ubuntu bash)\
